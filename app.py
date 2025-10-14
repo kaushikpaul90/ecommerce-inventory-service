@@ -53,6 +53,21 @@ def reserve(payload: dict):
         if effective < it.qty:
             raise HTTPException(409, detail=f"Insufficient stock for {it.sku}")
 
+    # # Collect all out-of-stock SKUs first
+    # out_of_stock = []
+    # for it in items:
+    #     total = STOCK.get(it.sku, 0)
+    #     reserved = reserved_by_sku.get(it.sku, 0)
+    #     effective = total - reserved
+    #     if effective < it.qty:
+    #         out_of_stock.append(it.sku)
+
+    # if out_of_stock:
+    #     raise HTTPException(
+    #         409,
+    #         detail=f"Insufficient stock for: {', '.join(out_of_stock)}"
+    #     )
+
     rid = str(uuid.uuid4())
     res = Reservation(id=rid, items=items, orderId=order_id)
     RESERVATIONS[rid] = res
