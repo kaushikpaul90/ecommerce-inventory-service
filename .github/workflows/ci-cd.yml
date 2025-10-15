@@ -41,6 +41,6 @@ jobs:
       - name: Deploy to Minikube
         run: |
           export DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
-          envsubst < k8s/inventory-service-deployment-template.yaml > k8s/inventory-service-deployment.yaml
-          kubectl apply -f k8s/inventory-service-deployment.yaml
-          kubectl apply -f k8s/inventory-service-service.yaml
+          envsubst < k8s/inventory-deployment-template.yaml > k8s/inventory-service-deployment.yaml
+          kubectl apply -f k8s/inventory-deployment-template.yaml
+          kubectl apply -f k8s/inventory-service-template.yaml
