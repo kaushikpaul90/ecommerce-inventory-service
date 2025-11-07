@@ -6,7 +6,7 @@ image:
   pullPolicy: Always
 
 service:
-  type: LoadBalancer
+  type: Nodeport
   port: 8080
   nodePort: 30002
 
