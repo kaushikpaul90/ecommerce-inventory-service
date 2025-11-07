@@ -8,7 +8,8 @@ import httpx
 app = FastAPI(title="Inventory Service")
 
 # Base URL of the Database microservice
-DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://localhost:8000")
+# DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://localhost:8000")
+DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://192.168.105.2:30000")
 
 # ---------------------------------------------------------------------
 # Models
